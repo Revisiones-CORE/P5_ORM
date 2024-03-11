@@ -10,6 +10,17 @@ exports.read = async function (patientId) {
 // Crea un paciente en un hospital
 exports.create = async function (hospitalId, name, surname, dni) {
     // Rellene aqui ...
+    try {
+        let patient = models.Patient.build({
+            name,
+            surname,
+            dni,
+            hospitalId: hospitalId
+        });
+
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 // Actualiza un paciente
