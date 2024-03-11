@@ -3,6 +3,14 @@ const {models} = require('../models');
 // Crear un  hospital
 exports.create = async function (name, city) {
     // Rellene aqui ...
+    try {
+        let hospital = models.Hospital.build({
+            name,
+            city
+        });
+    } catch (error){
+        console.log('Error: Failed to create hospital: ' + error.message);
+    }
 };
 
 // Devuelve todos los hospitales
