@@ -30,4 +30,7 @@ exports.assignDoctor = async function (patientId, doctorId) {
 // Muestra los medicos de un paciente
 exports.indexByPatient = async function (patientId) {
     // Rellene aqui ...
+    let patient = await models.Patient.findByPk(patientId);
+    let doctors = await patient.getDoctors();
+    return doctors;
 }
