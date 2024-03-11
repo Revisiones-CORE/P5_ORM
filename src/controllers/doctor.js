@@ -21,6 +21,10 @@ exports.create = async function (name, surname, speciality) {
 // Asigna un doctor y devuelve los datos del paciente
 exports.assignDoctor = async function (patientId, doctorId) {
     // Rellene aqui ...
+    let patient = await models.Patient.findByPk(patientId);
+    let doctor = await models.Doctor.findByPk(doctorId);
+    patient = await patient.addDoctor(doctor);
+    return patient;
 }
 
 // Muestra los medicos de un paciente
