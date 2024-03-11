@@ -26,6 +26,16 @@ exports.create = async function (hospitalId, name, surname, dni) {
 // Actualiza un paciente
 exports.update = async function (patientId, name, surname, dni) {
     // Rellene aqui ...
+    let patient = await models.Patient.findByPk(patientId);
+    patient.name = name;
+    patient.surname = surname;
+    patient.dni = dni;
+
+    try {
+        await patient.save({fields: ["name", "surname", "dni"]});
+    } catch (error){
+        console.log(error);
+    }
 }
 
 // Borra un paciente
