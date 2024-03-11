@@ -10,7 +10,7 @@ exports.read = async function (patientId) {
 // Crea un paciente en un hospital
 exports.create = async function (hospitalId, name, surname, dni) {
     // Rellene aqui ...
-    try {
+    try { // instancia no persistente:
         let patient = models.Patient.build({
             name,
             surname,
@@ -18,6 +18,9 @@ exports.create = async function (hospitalId, name, surname, dni) {
             hospitalId: hospitalId
         });
 
+        // Almacenamos en la base de datos:
+        patient = await patient.save({fields: ["name", "surname", "dni", "hospitalId"]});
+        return patient;
     } catch (error) {
         console.log(error);
     }
