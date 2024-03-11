@@ -20,6 +20,7 @@ exports.create = async function (hospitalId, name, surname, dni) {
 
         // Almacenamos en la base de datos:
         patient = await patient.save({fields: ["name", "surname", "dni", "hospitalId"]});
+        console.log('Patient: Patient created successfully.');
         return patient;
     } catch (error) {
         console.log(error);
@@ -36,6 +37,7 @@ exports.update = async function (patientId, name, surname, dni) {
 
     try {
         await patient.save({fields: ["name", "surname", "dni"]});
+        console.log('Patient: Patient updated successfully.');
     } catch (error){
         console.log(error);
     }
@@ -48,6 +50,7 @@ exports.delete = async function (patientId) {
         await models.Patient.destroy({where: {
             id: patientId
         }});
+        console.log('Patient: Patient deleted successfully.');
     } catch (error) {
         console.log(error);
     }

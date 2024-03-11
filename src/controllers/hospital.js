@@ -8,6 +8,10 @@ exports.create = async function (name, city) {
             name,
             city
         });
+        // Almacenamos en la base de datos
+        hospital = await hospital.save({fields: ["name", "city"]});
+        console.log('Hospital: Hospital created successfully.');
+        return hospital;
     } catch (error){
         console.log('Error: Failed to create hospital: ' + error.message);
     }

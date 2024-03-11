@@ -11,6 +11,7 @@ exports.create = async function (name, surname, speciality) {
         });
         // Almacenamos en la base de datos
         doctor = await doctor.save({fields: ["name", "surname", "speciality"]});
+        console.log('Doctor: Doctor created successfully.');
         return doctor;
     } catch (error){
         console.log(error);
