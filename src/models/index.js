@@ -14,8 +14,8 @@ const Doctor = require('./doctor')(sequelize, Sequelize.DataTypes);
 // Relationships
 // Rellene aqui ...
 // Relación 1-N entre Hospital y Paciente
-Hospital.hasMany(Patient,{as: 'patient', foreignKey: 'patientId'});
-Patient.belongsTo(Hospital,{as: 'hospital', foreignKey: 'patientId'});
+Hospital.hasMany(Patient,{as: 'patient', foreignKey: 'hospitalId'});
+Patient.belongsTo(Hospital,{as: 'hospital', foreignKey: 'hospitalId'});
 
 // Relación N-M entre Doctor y Pacientes
 Doctor.belongsToMany(Patient,{through: 'Doctor_Patients'});
