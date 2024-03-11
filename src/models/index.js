@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 // Variable para definir la URL de la data base
-const url = process.env.DATABASE_URL || "sqlite:db-p5-orm.sqlite";
+const url = "sqlite:db-p5-orm.sqlite";
 
 const sequelize = new Sequelize(url, {logging: false});  //ponemos logging: false para que no salgan muchos comentarios al ejecutar un comando 
 
@@ -21,4 +21,4 @@ Patient.belongsTo(Hospital,{as: 'hospital', foreignKey: 'hospitalId'});
 Doctor.belongsToMany(Patient,{through: 'Doctor_Patients'});
 Patient.belongsToMany(Doctor,{through: 'Doctor_Patients'});
 
-module.exports = exports = sequelize;
+module.exports = sequelize;

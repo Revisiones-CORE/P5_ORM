@@ -1,6 +1,5 @@
 'use strict';
 
-const { DATE } = require('sequelize');
 const {Model} = require('sequelize');
 
 // Definition of the Quiz model:
